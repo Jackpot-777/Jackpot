@@ -1,0 +1,26 @@
+# /etc/conf.d/jackpotd: config file for /etc/init.d/jackpotd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/jackpot/jackpot.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/jackpotd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/jackpotd.pid"
+
+# Where to write jackpotd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/jackpotd"
+
+# User and group to own jackpotd process
+#BITCOIND_USER="jackpot"
+#BITCOIND_GROUP="jackpot"
+
+# Path to jackpotd executable
+#BITCOIND_BIN="/usr/bin/jackpotd"
+
+# Nice value to run jackpotd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

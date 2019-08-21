@@ -1,0 +1,26 @@
+[Unit]
+Description=Jackpot's distributed currency daemon
+After=network.target
+
+[Service]
+User=jackpot
+Group=jackpot
+
+Type=forking
+PIDFile=/var/lib/jackpotd/jackpotd.pid
+
+ExecStart=/usr/bin/jackpotd -daemon -pid=/var/lib/jackpotd/jackpotd.pid \
+          -conf=/etc/jackpot/jackpot.conf -datadir=/var/lib/jackpotd
+
+ExecStop=-/usr/bin/jackpot-cli -conf=/etc/jackpot/jackpot.conf \
+         -datadir=/var/lib/jackpotd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
